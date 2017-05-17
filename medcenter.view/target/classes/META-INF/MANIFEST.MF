@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Implementation-Title: medcenter.view
+Implementation-Version: 
+Built-By: Pedro
+Implementation-Vendor-Id: com.medcenter
+Specification-Title: medcenter.view
+Implementation-Date: 
+Build-Jdk: 1.8.0_131
+Implementation-URL: http://projects.spring.io/spring-boot/mecdenter/me
+ dcenter.view/
+Created-By: Maven Integration for Eclipse
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor: Pivotal Software, Inc.
+

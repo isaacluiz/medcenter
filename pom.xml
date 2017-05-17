@@ -75,5 +75,6 @@
   <modules>
   	<module>medcenter.app</module>
   	<module>medcenter.view</module>
+  	<module>medcenter.presenter</module>
   </modules>
 </project>

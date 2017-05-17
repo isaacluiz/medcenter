@@ -26,6 +26,10 @@
 			<groupId>com.medcenter</groupId>
 			<artifactId>medcenter.view</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.medcenter</groupId>
+			<artifactId>medcenter.presenter</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<build>
