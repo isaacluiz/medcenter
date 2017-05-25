@@ -4,17 +4,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.core.GenericTypeResolver;
-
 import com.vaadin.ui.Component;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import medcenter.presenter.presenter.IPresenter;
-import medcenter.presenter.presenter.Presenter;
-import medcenter.presenter.presenter.TestPresenter;
 
 @Slf4j
 public abstract class Node<PRESENTER extends IPresenter> implements INode {
@@ -29,13 +23,8 @@ public abstract class Node<PRESENTER extends IPresenter> implements INode {
 
 	transient private List<Node> absolutePath;
 
-	private Class<? extends IPresenter> presenterInterfaceClass;
-
 	@Getter
 	private Set<Node<PRESENTER>> children = new HashSet<>();
-
-	@Autowired
-	private AutowireCapableBeanFactory springBeanFactory;
 
 	@Override
 	public String getAbsolutePathString() {
@@ -59,9 +48,10 @@ public abstract class Node<PRESENTER extends IPresenter> implements INode {
 
 	@Override
 	public Component attach() {
-		this.presenterInterfaceClass = (Class<? extends IPresenter>) GenericTypeResolver
-				.resolveTypeArgument(Presenter.class, this.getClass());
-		IPresenter bean = this.springBeanFactory.getBean(TestPresenter.class);
+		// this.presenterInterfaceClass = (Class<? extends IPresenter>)
+		// GenericTypeResolver
+		// .resolveTypeArgument(Presenter.class, this.getClass());
+		IPresenter bean = null;
 		return bean.renderView();
 	}
 
