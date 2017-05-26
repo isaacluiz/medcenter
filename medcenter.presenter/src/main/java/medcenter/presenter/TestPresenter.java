@@ -1,9 +1,11 @@
-package com.medcenter.medcenter.services;
+package medcenter.presenter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
+
+import medcenter.backend.TestService;
 
 @SpringComponent
 @ViewScope

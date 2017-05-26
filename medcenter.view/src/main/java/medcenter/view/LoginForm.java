@@ -1,4 +1,4 @@
-package com.medcenter.medcenter.app;
+package medcenter.view;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.ui.*;

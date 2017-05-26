@@ -1,13 +1,14 @@
-package com.medcenter.medcenter.services;
+package medcenter.presenter;
 
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
 
 @SpringComponent
 @ViewScope
-public class TestService {
+public class Presenter {
 
-	public String hello() {
-		return "teste service";
+	public String sovai() {
+		return "SO VAI";
 	}
+
 }

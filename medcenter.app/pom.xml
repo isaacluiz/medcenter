@@ -13,6 +13,14 @@
 
 	<name>medcenter.app</name>
 	<description>MedCenter</description>
+	
+	<dependencies>
+		<dependency>
+ 			<groupId>com.medcenter</groupId>
+ 			<artifactId>medcenter.view</artifactId>
+ 		</dependency>	
+	</dependencies>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

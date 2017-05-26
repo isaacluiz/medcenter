@@ -1,4 +1,4 @@
-package com.medcenter.medcenter.app;
+package medcenter.backend;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;

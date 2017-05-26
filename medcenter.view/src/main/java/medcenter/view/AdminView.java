@@ -1,4 +1,4 @@
-package com.medcenter.medcenter.app;
+package medcenter.view;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;

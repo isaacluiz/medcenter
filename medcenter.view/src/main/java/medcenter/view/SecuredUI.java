@@ -1,4 +1,4 @@
-package com.medcenter.medcenter.app;
+package medcenter.view;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -45,9 +45,6 @@ public class SecuredUI extends UI {
 	AuthenticationManager authenticationManager;
 
 	@Autowired
-	BackendService backendService;
-
-	@Autowired
 	SpringViewProvider viewProvider;
 
 	@Autowired
@@ -85,14 +82,14 @@ public class SecuredUI extends UI {
 
 		buttons.addComponent(new Button("Invoke user method", event -> {
 			// This method should be accessible by both 'user' and 'admin'.
-			Notification.show(this.backendService.userMethod());
+			//Notification.show(this.backendService.userMethod());
 		}));
 		buttons.addComponent(new Button("Navigate to user view", event -> {
 			getNavigator().navigateTo("");
 		}));
 		buttons.addComponent(new Button("Invoke admin method", event -> {
 			// This method should be accessible by 'admin' only.
-			Notification.show(this.backendService.adminMethod());
+			//Notification.show(this.backendService.adminMethod());
 		}));
 		buttons.addComponent(new Button("Navigate to admin view", event -> {
 			getNavigator().navigateTo("admin");

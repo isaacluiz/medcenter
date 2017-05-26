@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.method.configuration.Globa
 import org.springframework.security.core.context.SecurityContextHolder;
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
-@ComponentScan(basePackages = { "com.medcenter.medcenter.app", "com.medcenter.medcenter.services" })
+@ComponentScan(basePackages = { "com.medcenter", "medcenter" })
 public class MedCenterApplication {
 
 	@Configuration
