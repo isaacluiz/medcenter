@@ -47,6 +47,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-push</artifactId>
+			<version>${vaadin.version}</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -92,8 +97,6 @@
 	</build>
   
   <modules>
-  	<module>medcenter.app</module>
-  	<module>medcenter.view</module>
-  	<module>medcenter.presenter</module>
+  	<module>medcenter.app</module>  	
   </modules>
 </project>
