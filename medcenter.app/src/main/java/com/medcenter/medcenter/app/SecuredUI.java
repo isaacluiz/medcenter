@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -51,6 +52,9 @@ public class SecuredUI extends UI {
 
 	@Autowired
 	ErrorView errorView;
+
+	@Autowired
+	private AutowireCapableBeanFactory springBeanFactory;
 
 	private Label timeAndUser;
 

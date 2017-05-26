@@ -97,6 +97,7 @@
 	</build>
   
   <modules>
-  	<module>medcenter.app</module>  	
+  	<module>medcenter.app</module>
+  	<module>medcenter.backend</module>
   </modules>
 </project>
