@@ -5,9 +5,8 @@ import com.vaadin.spring.annotation.UIScope;
 
 @SpringComponent
 @UIScope
-public class Teste {
-
+public class Greeter {
 	public String sayHello() {
-		return "test";
+		return "Hello from bean " + toString();
 	}
 }

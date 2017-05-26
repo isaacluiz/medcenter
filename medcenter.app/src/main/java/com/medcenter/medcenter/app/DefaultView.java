@@ -1,4 +1,4 @@
-package medcenter.view;
+package com.medcenter.medcenter.app;
 
 import javax.annotation.PostConstruct;
 
@@ -10,8 +10,6 @@ import com.vaadin.ui.VerticalLayout;
 
 @SpringView(name = DefaultView.VIEW_NAME)
 public class DefaultView extends VerticalLayout implements View {
-
-	private static final long serialVersionUID = 1L;
 	public static final String VIEW_NAME = "";
 
 	@PostConstruct
