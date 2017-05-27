@@ -1,29 +1,54 @@
 package medcenter.view;
 
 import com.vaadin.event.ShortcutAction;
+import com.vaadin.event.ShortcutAction.KeyCode;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.ValoTheme;
 
 public class LoginView extends VerticalLayout {
 
 	private static final long serialVersionUID = 1L;
 
+	private VerticalLayout layout;
+
 	public LoginView(LoginCallback callback) {
-		setMargin(true);
-		setSpacing(true);
-		this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+		this.layout = new VerticalLayout();
+		this.layout.setMargin(true);
+		this.layout.setSpacing(true);
+		this.layout.setSizeUndefined();
+
+		setSizeFull();
+		setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+
+		HorizontalLayout fields = new HorizontalLayout();
 
 		TextField username = new TextField("Username");
-		addComponent(username);
+		username.setPlaceholder("username");
+		username.setIcon(VaadinIcons.USER);
+		username.addStyleName(ValoTheme.TEXTFIELD_INLINE_ICON);
 
 		PasswordField password = new PasswordField("Password");
-		addComponent(password);
+		password.setPlaceholder("password");
+		password.setIcon(VaadinIcons.LOCK);
+		password.addStyleName(ValoTheme.TEXTFIELD_INLINE_ICON);
+
+		Button signin = new Button("Sign In");
+		signin.addStyleName(ValoTheme.BUTTON_PRIMARY);
+		signin.setClickShortcut(KeyCode.ENTER);
+		signin.focus();
+
+		fields.addComponents(username, password, signin);
+
+		this.layout.addComponent(fields);
 
 		Button login = new Button("Login", evt -> {
 			String pword = password.getValue();
@@ -37,7 +62,8 @@ public class LoginView extends VerticalLayout {
 			}
 		});
 		login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
-		addComponent(login);
+		this.layout.addComponent(login);
+		addComponent(this.layout);
 	}
 
 	@FunctionalInterface
