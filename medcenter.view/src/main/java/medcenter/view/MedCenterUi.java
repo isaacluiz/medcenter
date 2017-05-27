@@ -6,7 +6,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,12 +33,17 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
+import medcenter.backend.LoginService;
+import medcenter.utils.SecurityUtils;
+
 @SpringUI
 @Title(value = "MedCenter")
 // No @Push annotation, we are going to enable it programmatically when the user
 // logs on
 @Theme(ValoTheme.THEME_NAME) // Looks nicer
-public class SecuredUI extends UI {
+public class MedCenterUi extends UI {
+
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	AuthenticationManager authenticationManager;
@@ -51,11 +55,11 @@ public class SecuredUI extends UI {
 	ErrorView errorView;
 
 	@Autowired
-	private AutowireCapableBeanFactory springBeanFactory;
+	private LoginService loginService;
 
 	private Label timeAndUser;
 
-	private Timer timer;
+	private Timer timer = new Timer();
 
 	@Override
 	protected void init(VaadinRequest request) {
@@ -67,7 +71,7 @@ public class SecuredUI extends UI {
 	}
 
 	private void showLogin() {
-		setContent(new LoginForm(this::login));
+		setContent(new LoginView(this::onLogin));
 	}
 
 	private void showMain() {
@@ -82,14 +86,14 @@ public class SecuredUI extends UI {
 
 		buttons.addComponent(new Button("Invoke user method", event -> {
 			// This method should be accessible by both 'user' and 'admin'.
-			//Notification.show(this.backendService.userMethod());
+			// Notification.show(this.backendService.userMethod());
 		}));
 		buttons.addComponent(new Button("Navigate to user view", event -> {
 			getNavigator().navigateTo("");
 		}));
 		buttons.addComponent(new Button("Invoke admin method", event -> {
 			// This method should be accessible by 'admin' only.
-			//Notification.show(this.backendService.adminMethod());
+			// Notification.show(this.backendService.adminMethod());
 		}));
 		buttons.addComponent(new Button("Navigate to admin view", event -> {
 			getNavigator().navigateTo("admin");
@@ -114,7 +118,6 @@ public class SecuredUI extends UI {
 		this.viewProvider.setAccessDeniedViewClass(AccessDeniedView.class);
 		// Fire up a timer to demonstrate server push. Do NOT use timers in
 		// real-world applications, use a thread pool.
-		this.timer = new Timer();
 		this.timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -138,7 +141,7 @@ public class SecuredUI extends UI {
 				SecurityContextHolder.getContext().getAuthentication().getName())));
 	}
 
-	private boolean login(String username, String password) {
+	private boolean onLogin(String username, String password) {
 		try {
 			Authentication token = this.authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(username, password));

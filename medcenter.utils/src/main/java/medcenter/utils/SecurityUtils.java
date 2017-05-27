@@ -1,4 +1,4 @@
-package com.medcenter.medcenter.app;
+package medcenter.utils;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

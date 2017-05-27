@@ -18,7 +18,11 @@
 		<dependency>
  			<groupId>com.medcenter</groupId>
  			<artifactId>medcenter.view</artifactId>
- 		</dependency>	
+ 		</dependency>
+ 		<dependency>
+ 			<groupId>com.medcenter</groupId>
+ 			<artifactId>medcenter.utils</artifactId>
+ 		</dependency>
 	</dependencies>
 
 

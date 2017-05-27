@@ -5,18 +5,6 @@
     <artifactId>medcenter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>medcenter.view</artifactId>
-  <name>view</name>
-  
-  	<dependencies>
-		<dependency>
- 			<groupId>com.medcenter</groupId>
- 			<artifactId>medcenter.presenter</artifactId>
- 		</dependency>	
-		<dependency>
- 			<groupId>com.medcenter</groupId>
- 			<artifactId>medcenter.utils</artifactId>
- 		</dependency>	
-	</dependencies>
-  
+  <artifactId>medcenter.utils</artifactId>
+  <name>utils</name>
 </project>

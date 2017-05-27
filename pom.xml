@@ -34,6 +34,11 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+		    <groupId>de.svenkubiak</groupId>
+		    <artifactId>jBCrypt</artifactId>
+		    <version>0.4</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
@@ -82,6 +87,11 @@
 				<groupId>com.medcenter</groupId>
 				<artifactId>medcenter.backend</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.medcenter</groupId>
+				<artifactId>medcenter.utils</artifactId>
+				<version>${project.version}</version>
 			</dependency>		
 		</dependencies>
 	</dependencyManagement>
@@ -106,5 +116,6 @@
   	<module>medcenter.backend</module>
   	<module>medcenter.presenter</module>
   	<module>medcenter.view</module>
+  	<module>medcenter.utils</module>
   </modules>
 </project>

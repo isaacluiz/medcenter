@@ -26,7 +26,10 @@ public class UserView extends VerticalLayout implements View {
 	void init() {
 		setMargin(true);
 		// String s = this.service.toString();
-		addComponent(new Label(this.presenter.sovai()));
+		Label label = new Label(this.presenter.sovai());
+		label.setValue(this.presenter.sovai());
+		label.addStyleName("red");
+		addComponent(label);
 	}
 
 	@Override
