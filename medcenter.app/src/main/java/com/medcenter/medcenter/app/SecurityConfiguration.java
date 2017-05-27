@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Globa
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import medcenter.backend.LoginService;
+import medcenter.utils.BcryptUtils;
 
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -20,7 +21,7 @@ public class SecurityConfiguration extends GlobalMethodSecurityConfiguration {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(this.service);
+		auth.userDetailsService(this.service).passwordEncoder(new BcryptUtils());
 		// @formatter:off
 		// auth.inMemoryAuthentication().withUser("admin").password("p").roles("ADMIN",
 		// "USER").and().withUser("user")

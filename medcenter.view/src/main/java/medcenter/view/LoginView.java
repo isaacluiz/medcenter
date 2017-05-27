@@ -2,6 +2,7 @@ package medcenter.view;
 
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.Page;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
@@ -16,6 +17,7 @@ public class LoginView extends VerticalLayout {
 	public LoginView(LoginCallback callback) {
 		setMargin(true);
 		setSpacing(true);
+		this.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
 		TextField username = new TextField("Username");
 		addComponent(username);

@@ -1,7 +1,5 @@
 package medcenter.view;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,14 +21,11 @@ import com.vaadin.shared.communication.PushMode;
 import com.vaadin.shared.ui.ui.Transport;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
 import medcenter.backend.LoginService;
@@ -75,39 +70,39 @@ public class MedCenterUi extends UI {
 	}
 
 	private void showMain() {
-		VerticalLayout layout = new VerticalLayout();
-		layout.setMargin(true);
-		layout.setSpacing(true);
+		CssLayout layout = new CssLayout();
+		// layout.setMargin(true);
+		// layout.setSpacing(true);
 		layout.setSizeFull();
-
-		HorizontalLayout buttons = new HorizontalLayout();
-		buttons.setSpacing(true);
-		layout.addComponent(buttons);
-
-		buttons.addComponent(new Button("Invoke user method", event -> {
-			// This method should be accessible by both 'user' and 'admin'.
-			// Notification.show(this.backendService.userMethod());
-		}));
-		buttons.addComponent(new Button("Navigate to user view", event -> {
-			getNavigator().navigateTo("");
-		}));
-		buttons.addComponent(new Button("Invoke admin method", event -> {
-			// This method should be accessible by 'admin' only.
-			// Notification.show(this.backendService.adminMethod());
-		}));
-		buttons.addComponent(new Button("Navigate to admin view", event -> {
-			getNavigator().navigateTo("admin");
-		}));
-		buttons.addComponent(new Button("Logout", event -> logout()));
-		this.timeAndUser = new Label();
-		this.timeAndUser.setSizeUndefined();
-		buttons.addComponent(this.timeAndUser);
-		buttons.setComponentAlignment(this.timeAndUser, Alignment.MIDDLE_LEFT);
+		//
+		// HorizontalLayout buttons = new HorizontalLayout();
+		// buttons.setSpacing(true);
+		// layout.addComponent(buttons);
+		//
+		// buttons.addComponent(new Button("Invoke user method", event -> {
+		// // This method should be accessible by both 'user' and 'admin'.
+		// // Notification.show(this.backendService.userMethod());
+		// }));
+		// buttons.addComponent(new Button("Navigate to user view", event -> {
+		// getNavigator().navigateTo("");
+		// }));
+		// buttons.addComponent(new Button("Invoke admin method", event -> {
+		// // This method should be accessible by 'admin' only.
+		// // Notification.show(this.backendService.adminMethod());
+		// }));
+		// buttons.addComponent(new Button("Navigate to admin view", event -> {
+		// getNavigator().navigateTo("admin");
+		// }));
+		// buttons.addComponent(new Button("Logout", event -> logout()));
+		// this.timeAndUser = new Label();
+		// this.timeAndUser.setSizeUndefined();
+		// buttons.addComponent(this.timeAndUser);
+		// buttons.setComponentAlignment(this.timeAndUser,
+		// Alignment.MIDDLE_LEFT);
 
 		Panel viewContainer = new Panel();
 		viewContainer.setSizeFull();
 		layout.addComponent(viewContainer);
-		layout.setExpandRatio(viewContainer, 1.0f);
 
 		setContent(layout);
 		setErrorHandler(this::handleError);
@@ -136,9 +131,10 @@ public class MedCenterUi extends UI {
 		// Demonstrate that server push works and that you can even access the
 		// security context from within the
 		// access(...) method.
-		access(() -> this.timeAndUser.setValue(String.format("The server-side time is %s and the current user is %s",
-				LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
-				SecurityContextHolder.getContext().getAuthentication().getName())));
+		// access(() -> this.timeAndUser.setValue(String.format("The server-side
+		// time is %s and the current user is %s",
+		// LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+		// SecurityContextHolder.getContext().getAuthentication().getName())));
 	}
 
 	private boolean onLogin(String username, String password) {

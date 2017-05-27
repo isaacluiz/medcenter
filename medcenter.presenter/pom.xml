@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>medcenter.presenter</artifactId>
-  <name>presenter</name>
+  <name>medcenter.presenter</name>
   
   	<dependencies>
 		<dependency>

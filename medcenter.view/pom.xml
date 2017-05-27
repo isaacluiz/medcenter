@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>medcenter.view</artifactId>
-  <name>view</name>
+  <name>medcenter.view</name>
   
   	<dependencies>
 		<dependency>
