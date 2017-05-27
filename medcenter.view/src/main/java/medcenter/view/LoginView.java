@@ -1,6 +1,5 @@
 package medcenter.view;
 
-import com.vaadin.event.ShortcutAction;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Page;
@@ -30,6 +29,7 @@ public class LoginView extends VerticalLayout {
 		setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
 		HorizontalLayout fields = new HorizontalLayout();
+		fields.setDefaultComponentAlignment(Alignment.BOTTOM_LEFT);
 
 		TextField username = new TextField("Username");
 		username.setPlaceholder("username");
@@ -41,16 +41,7 @@ public class LoginView extends VerticalLayout {
 		password.setIcon(VaadinIcons.LOCK);
 		password.addStyleName(ValoTheme.TEXTFIELD_INLINE_ICON);
 
-		Button signin = new Button("Sign In");
-		signin.addStyleName(ValoTheme.BUTTON_PRIMARY);
-		signin.setClickShortcut(KeyCode.ENTER);
-		signin.focus();
-
-		fields.addComponents(username, password, signin);
-
-		this.layout.addComponent(fields);
-
-		Button login = new Button("Login", evt -> {
+		Button signin = new Button("Entrar", e -> {
 			String pword = password.getValue();
 			password.setValue("");
 			if (!callback.login(username.getValue(), pword)) {
@@ -61,8 +52,14 @@ public class LoginView extends VerticalLayout {
 				username.focus();
 			}
 		});
-		login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
-		this.layout.addComponent(login);
+		signin.addStyleName(ValoTheme.BUTTON_PRIMARY);
+		signin.setClickShortcut(KeyCode.ENTER);
+		signin.focus();
+
+		fields.addComponents(username, password, signin);
+
+		this.layout.addComponent(fields);
+
 		addComponent(this.layout);
 	}
 
