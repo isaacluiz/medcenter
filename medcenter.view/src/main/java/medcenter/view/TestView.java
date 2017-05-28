@@ -14,6 +14,7 @@ public class TestView extends AbstractView<TestPresenter, TestViewInfo> {
 
 	@Override
 	protected void render(TestViewInfo info) {
+		super.render(info);
 		addComponent(new Label(info.getTest()));
 	}
 

@@ -14,6 +14,7 @@ public class AdminView extends AbstractView<AdminPresenter, AdminViewInfo> {
 
 	@Override
 	protected void render(AdminViewInfo info) {
+		super.render(info);
 		addComponent(new Label(info.getTest()));
 
 	}
