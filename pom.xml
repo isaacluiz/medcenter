@@ -93,6 +93,11 @@
 				<groupId>com.medcenter</groupId>
 				<artifactId>medcenter.utils</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.medcenter</groupId>
+				<artifactId>medcenter.model</artifactId>
+				<version>${project.version}</version>
 			</dependency>		
 		</dependencies>
 	</dependencyManagement>
@@ -119,5 +124,6 @@
   	<module>medcenter.view</module>
   	<module>medcenter.utils</module>
   	<module>medcenter.documentacao</module>
+  	<module>medcenter.model</module>
   </modules>
 </project>
